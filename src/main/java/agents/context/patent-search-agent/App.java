@@ -75,7 +75,7 @@ public class App {
       Session session =
           runner
               .sessionService()
-              .createSession(runner.appName(), "student", initialState, SESSION_ID )
+              .createSession(runner.appName(), USER_ID )
               .blockingGet();
       logger.log(Level.INFO, () -> String.format("Initial session state: %s", session.state()));
  
