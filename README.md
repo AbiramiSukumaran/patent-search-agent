@@ -21,14 +21,22 @@ export GOOGLE_API_KEY=AIzaSyB2-DNQcffzdpab5wvlyhF1zoTEoTw44Oc
 8. In cloud Shell Terminal, navigate into the project folder
    
 9. Run the following command to kickoff agent interaction:
-   mvn compile exec:java -Dexec.mainClass="cloudcode.patentsearch.web.App"
+   mvn compile exec:java -Dexec.mainClass="agents.App"
 
-10. Start interacting with the agent with inputs like:
+10. Deploy in Cloud Run:
+    Navigate to your root folder & run the following command:
+    gcloud run deploy --source . --set-env-vars GOOGLE_API_KEY=<<YOUR_API_KEY>>
+
+    Navigate to the deployed CR Endpoint for your agent so you can see the web UI.
+    
+TEST:
+
+Start interacting with the agent with inputs like:
 
     Hi.
-    
+    >>
     I want to search about NLP related patents.
-
+    >>
     Can you give more details about this patent #*****
    
 
