@@ -73,12 +73,13 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 
 7. Load patent data into the database
 The [Google Patents Public Datasets]([url](https://console.cloud.google.com/launcher/browse?q=google%20patents%20public%20datasets&filter=solution-type:dataset&_ga=2.179551075.-653757248.1714456172)) on BigQuery will be used as our dataset. We will use the AlloyDB Studio to run our queries. The [alloydb-pgvector]([url](https://github.com/AbiramiSukumaran/alloydb-pgvector)) repository includes the
-[insert_into_patents_data.sql]([url](https://github.com/AbiramiSukumaran/alloydb-pgvector/blob/main/insert_scripts.sql)) script we will run to load the patent data.
+[insert_into_patents_data.sql]([url](https://github.com/AbiramiSukumaran/alloydb-pgvector/blob/main/insert_scripts.sql)) script we will run to load the patent data:
+https://github.com/AbiramiSukumaran/alloydb-pgvector/blob/main/insert_scripts.sql
 a. In the Google Cloud console, open the AlloyDB page.
 b. Select your newly created cluster and click the instance.
 c. In the AlloyDB Navigation menu, click AlloyDB Studio. Sign in with your credentials.
 d. Open a new tab by clicking the New tab icon on the right.
-e. Copy the insert query statement from the insert_into_patents_data.sql script mentioned above to the editor. You can copy 50-100 insert statements for a quick demo of this use case.
+e. Copy the insert query statement from the insert_into_patents_data.sql script mentioned above to the editor. You can copy 40-50 insert statements for a quick demo of this use case.
 f. Click Run. The results of your query appear in the Results table.
 
 ### Create Cloud Run Function
@@ -99,7 +100,7 @@ Ready for taking this data to Cloud Run Function? Follow the steps below:
 
 Once deployed, in order to allow the Cloud Function to access our AlloyDB database instance, we'll create the VPC connector.
 
-Once you are set out for deployment, you should be able to see the functions in the Google Cloud Run Functions console. Search for the newly created function (get-toys-alloydb), click on it, then click EDIT and change the following:
+Once you are set out for deployment, you should be able to see the functions in the Google Cloud Run Functions console. Search for the newly created function (patent-search), click on it, then click EDIT and change the following:
 
 1. Go to Runtime, build, connections and security settings
 
