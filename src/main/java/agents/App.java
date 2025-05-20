@@ -126,7 +126,7 @@ public class App {
   // --- Define the Tool ---
   // Retrieves the contextually matching patents for user's search text
   public static Map<String, String> getPatents(
-    @Schema(description = "The search text for which the user wants to find matching patents from the database") 
+    @Schema(name="searchText",description = "The search text for which the user wants to find matching patents from the database") 
     String searchText) {
       try{
         String patents = "";
@@ -146,8 +146,10 @@ public class App {
 // --- Define the Tool ---
   // Retrieves the explanation for the patent the user's interested in
   public static Map<String, String> explainPatent(
-    @Schema(description = "The patent id for which the user wants to get more explanation for, from the database") 
-    String patentId, InvocationContext ctx) {
+   @Schema(name="patentId",description = "The patent id for which the user wants to get more explanation for, from the database") 
+    String patentId, 
+    @Schema(name="ctx",description = "The list of patent abstracts from the database from which the user can pick the one to get more explanation for") 
+    InvocationContext ctx) {
     String patent = "";
     try{
      String previousResults = (String) ctx.session().state().get("patents");
